@@ -9,6 +9,10 @@ public class Country {
         this.phoneCode = phoneCode;
     }
 
+    public Country() {
+
+    }
+
     public int getId() {
         return id;
     }

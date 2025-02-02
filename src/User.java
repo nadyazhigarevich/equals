@@ -11,6 +11,10 @@ public class User {
         this.address = address;
     }
 
+    public User() {
+
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -52,6 +56,10 @@ public class User {
             return false;
         }
         User user = (User) o;
+        if (this.roles.length != user.roles.length) {
+            return false;
+        }
+
         for (int i = 0; i < roles.length; i++) {
             if (!this.roles[i].equals(user.roles[i])) {
                 return false;

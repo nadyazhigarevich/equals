@@ -7,6 +7,10 @@ public class Address {
         this.country = country;
     }
 
+    public Address () {
+
+    }
+
     public int getId() {
         return id;
     }
