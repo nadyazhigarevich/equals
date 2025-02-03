@@ -1,13 +1,13 @@
 public class User {
     private String firstName;
     private String lastName;
-    private Role[] roles;
+    private Role role;
     private Address address;
 
-    public User(String firstName, String lastName, Role[] roles, Address address) {
+    public User(String firstName, String lastName, Role role, Address address) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.roles = roles;
+        this.role = role;
         this.address = address;
     }
 
@@ -23,8 +23,8 @@ public class User {
         return lastName;
     }
 
-    public Role[] getRoles() {
-        return roles;
+    public Role getRole() {
+        return role;
     }
 
     public Address getAddress() {
@@ -39,8 +39,8 @@ public class User {
         this.lastName = lastName;
     }
 
-    public void setRoles(Role[] roles) {
-        this.roles = roles;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public void setAddress(Address address) {
@@ -56,17 +56,10 @@ public class User {
             return false;
         }
         User user = (User) o;
-        if (this.roles.length != user.roles.length) {
-            return false;
-        }
 
-        for (int i = 0; i < roles.length; i++) {
-            if (!this.roles[i].equals(user.roles[i])) {
-                return false;
-            }
-        }
         return this.firstName.equals(user.firstName)
                 && this.lastName.equals(user.lastName)
+                && this.role.equals(user.role)
                 && this.address.equals(user.getAddress());
     }
 
@@ -75,15 +68,8 @@ public class User {
         StringBuilder sb = new StringBuilder("User{");
         sb.append("firstName='").append(this.firstName).append('\'');
         sb.append(", lastName='").append(this.lastName).append('\'');
-        sb.append(", roles=[");
-
-        for (int i = 0; i < this.roles.length; i++) {
-            sb.append(this.roles[i]);
-            if (i < this.roles.length - 1) {
-                sb.append(", ");
-            }
-        }
-        sb.append("], address=").append(this.address);
+        sb.append(", role='").append(this.role).append('\'');
+        sb.append(", address=").append(this.address);
         sb.append("}");
 
         return sb.toString();
